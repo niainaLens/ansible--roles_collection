@@ -1,2 +1,2 @@
-# ansible_basic_role_collection-
-ansible basic role collection for common system service
+# ansible_role_collection-
+ansible roles collection for common system service
