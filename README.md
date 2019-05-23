@@ -1,2 +1,35 @@
-# ansible_roles_collection
-ansible roles collection for common system service
+# Ansible : Roles collection
+
+Ansible - Roles collection for common system services
+
+## Requirements
+
+**OS**: debian/ubuntu based distro
+
+(RedHat & CentOS support in progress)
+
+## Role Variables
+
+For each role, look at `roles/role_name/defaults/main.yml`):
+
+## Dependencies
+
+None.
+
+## Example Playbook
+
+```
+- hosts: server-1
+  become: yes
+  roles:
+    - build-essential
+    - apache
+```
+
+## License
+
+MIT / BSD
+
+## Author Information
+
+by Niaina Lens.
