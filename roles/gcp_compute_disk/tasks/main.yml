@@ -1,0 +1,25 @@
+---
+# tasks file for gcp_compute_disk
+
+- name: Create disks
+  gcp_compute_disk:
+    name: "{{ item.disk_name }}"
+    size_gb: "{{ item.disk_size | default('10') }}"
+    source_image: "{{ item.disk_image | default(omit) }}"
+    zone: "{{ item.disk_zone }}"
+    project: "{{ gcp.project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp.credentials_file }}"
+    scopes: "{{ item.disk_scopes | default(omit) }}"
+    state: present
+  with_items: '{{ disks }}'
+  tags:
+  - create_disk
+  register: disk
+
+- name: Waiting for processing
+  pause:
+    seconds: 5
+  when: disk.changed
+
+...

@@ -1,0 +1,14 @@
+---
+# defaults file for gcp_compute_disk
+
+
+disks: []
+#- disk_name: instance-env-disk-1-sys
+#  disk_size: 50
+#  disk_type: pd-ssd
+#  disk_image: projects/debian-cloud/global/images/family/debian-10
+#  disk_zone: europe-west1-b
+#- disk_name: instance-env-disk-2-data
+#  disk_size: 10
+#  disk_type: pd-standard
+#  disk_zone: europe-west1-b

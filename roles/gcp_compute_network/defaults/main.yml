@@ -1,0 +1,10 @@
+---
+# GCP compute network
+
+network: []
+#- network_name: project-network-1
+#  network_description: "Description of use of this network"
+#  network_auto_subnets: true
+#- network_name: project-network-2
+#  network_auto_subnets: false
+...

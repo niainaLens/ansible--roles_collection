@@ -1,0 +1,40 @@
+---
+# defaults file for gcp_compute_instance
+
+gce_instance_pause: 30
+
+instances: []
+#- instance_name: project-env-compute-1
+#  instance_zone: europe-west1-b
+#  instance_type: n1-standard-1
+#  instance_metadata:
+#    key: value
+#    startup-script: gs://buucket/startup-script.sh
+#  instance_label:
+#    env: dev
+#  instance_tags:
+#    items:
+#    - tag-fw-allow-http-https
+#    - tag-fw-allow-ftp-custom
+#  instance_scopes:
+#  - https://www.googleapis.com/auth/cloud-platform
+#  disks:
+#  - auto_delete: true
+#    boot: true
+#    source:
+      # DISK selfLink format:
+      # projects/{{ project_id }}/zones/{{ disk_zone }}/disks/{{ disk_name }}
+#      selfLink: projects/project/zones/europe-west1-b/disks/project-env-disk-1-sys
+  #- auto_delete: false
+  #  boot: false
+  #  source: project-env-disk-2-data
+#  network_interfaces:
+#  - network:
+#      name: default
+#    access_configs:
+#    - name: External NAT
+#      nat_ip:
+        # EIP selfLink format:
+        #address: projects/{{ project_id }}/zones/{{ eip_region }}/addresses/{{ eip_name }}
+#        address: 35.187.125.138
+#      type: ONE_TO_ONE_NAT

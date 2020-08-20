@@ -1,0 +1,9 @@
+---
+# GCP compute address
+
+compute_address: []
+#- compute_address_name: project-env-eip-1
+#  compute_address_region: europe-west1
+#  compute_address_type: EXTERNAL
+
+...

@@ -1,0 +1,36 @@
+---
+# tasks file for gcp_compute_instance
+
+- name: create compute instances
+  gcp_compute_instance:
+    name: "{{ item.instance_name }}"
+    zone: "{{ item.instance_zone }}"
+    machine_type: "{{ item.instance_type }}"
+    metadata: "{{ item.instance_metadata | default(omit) }}"
+    labels: "{{ item.instance_label | default(omit) }}"
+    tags: "{{ item.instance_tags | default(omit) }}"
+    scopes: '{{ item.instance_scopes | default("https://www.googleapis.com/auth/cloud-platform") }}'
+    disks: "{{ item.disks }}"
+    network_interfaces: "{{ item.network_interfaces }}"
+    # network_interfaces:
+    # - network:
+    #     name: {{ network }}
+    #   access_configs:
+    #   - name: External NAT
+    #     nat_ip:
+    #       address: "{{ address }}"
+    #     type: ONE_TO_ONE_NAT
+    project: "{{ gcp.project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp.credentials_file }}"
+    state: present
+  with_items: "{{ instances }}"
+  register: instance
+  tags:
+  - create_instance
+
+- name: Waiting for processing
+  pause:
+    seconds: "{{ gce_instance_pause }}"
+
+...

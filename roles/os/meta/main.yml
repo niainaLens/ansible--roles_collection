@@ -1,0 +1,16 @@
+---
+# OS
+
+galaxy_info:
+  author: Niaina Lens
+  description: Metarole OS
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 1.2
+  galaxy_tags: []
+dependencies:
+- timezone
+- unzip
+- directory
+- user
+
+...

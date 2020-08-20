@@ -1,0 +1,10 @@
+---
+# unzip
+
+- name: "Install package: unzip"
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+  - unzip

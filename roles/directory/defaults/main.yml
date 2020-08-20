@@ -1,0 +1,12 @@
+---
+# directory
+
+directory: []
+# - path: /data
+#   owner: root
+#   group: root
+#   mode: '0744'
+# - path: /srv
+#   owner: user
+#   group: user
+#   mode: '0744'

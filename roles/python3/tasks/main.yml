@@ -1,0 +1,24 @@
+---
+# tasks file for python3
+
+- name: Install necessary package for python3
+  package:
+    name: "{{ item.necessary_package }}"
+    state: present
+  with_items:
+  - "{{ python3 }}"
+  become: yes
+  tags:
+  - python3_necessary_package
+
+- name: "Install package: pip3"
+  yum:
+    name: "{{ pip_package }}"
+    state: present
+  become: yes
+
+- name: Ensure pip modules are installed.
+  pip:
+    name: "{{ pip_modules }}"
+    state: present
+  become: yes

@@ -1,0 +1,23 @@
+---
+# GCP compute address
+
+- name: create address
+  gcp_compute_address:
+    name: "{{ item.compute_address_name }}"
+    region: "{{ item.compute_address_region | default({{ gcp.region }}) }}"
+    address_type: '{{ item.compute_address_type | default("EXTERNAL") }}'
+    network_tier: "{{ item.compute_address_network_tier | default(omit) }}"
+    project: "{{ gcp.project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp.credentials_file }}"
+    state: present
+  with_items: "{{ compute_address }}"
+  register: address
+  tags: create_address
+
+- name: Waiting for processing
+  pause:
+    seconds: 5
+  when: address.changed
+
+...

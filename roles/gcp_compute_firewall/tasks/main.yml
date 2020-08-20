@@ -1,0 +1,38 @@
+---
+# GCP firewall rules
+
+- name: Delete default firewall rules
+  gcp_compute_firewall:
+    name: "{{ item.rule_name | default(omit) }}"
+    project: "{{ gcp.project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp.credentials_file }}"
+    state: absent
+  with_items: '{{ firewall.default_rules_to_delete }}'
+  ignore_errors: yes
+  tags:
+  - delete_default_firewall
+
+- name: Create firewall rules
+  gcp_compute_firewall:
+    name: "{{ item.rule_name }}"
+    description: "{{ item.rule_description | default(omit) }}"
+    network: '{{ item.rule_network }}'
+    allowed: "{{ item.rule_allowed }}"
+    target_tags: "{{ item.rule_target_tags }}"
+    source_ranges: "{{ item.rule_source_ranges }}"
+    project: "{{ gcp.project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp.credentials_file }}"
+    state: present
+  with_items: '{{ firewall.rules }}'
+  register: firewall
+  tags:
+  - create_firewall
+
+- name: Waiting for processing
+  pause:
+    seconds: 5
+  when: firewall.changed
+
+...

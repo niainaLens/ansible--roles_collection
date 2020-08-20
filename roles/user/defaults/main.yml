@@ -1,0 +1,19 @@
+---
+# user
+
+user: []
+# - name: my_user
+#   comment: This is my user
+#   groups: sudo
+# - name: user_system
+#   createhome: no
+#   shell: /bin/nologin
+#
+# NB:
+# - var "uid" not required, set to default generated, can be customized
+# - var "group" not required, it is user primary group, his own name
+# - var "groups" not required, used to include user to others existing groups, use comma for multiple values
+# - var "createhome" not required, yes by default, set to "no" if needed (example for user system)
+# - var "shell" not required, "/bin/bash" by default, set custom path to shell if needed (example for /bin/nologin or /bin/sh)
+# - var "generate_ssh_key" not required, "no" by default, set to "yes" if needed
+# - var "state" not required, "present" by default, set to "absent" for deleting user

@@ -1,0 +1,37 @@
+---
+# GCP firewall rules
+
+firewall: []
+#  default_rules_to_delete:
+#  - rule_name: default-allow-http
+#  - rule_name: default-allow-https
+#  rules:
+#  - rule_name: allow-http-https
+#    rule_description: "allow access from internet to port 80,443"
+#    rule_network:
+#      network: default
+#    rule_source_ranges:
+#    - 0.0.0.0/0
+#    rule_allowed:
+#    - ip_protocol: tcp
+#      ports:
+#      - '80'
+#    - ip_protocol: tcp
+#      ports:
+#      - '443'
+#    rule_target_tags:
+#    - tag-fw-allow-http-hhtps
+#  - rule_name: allow-ftp
+#    rule_description: "allow access from internet to port 21"
+#    rule_network:
+#      network: default
+#    rule_source_ranges:
+#    - 1.1.1.1/1
+#    rule_allowed:
+#    - ip_protocol: tcp
+#      ports:
+#      - '21'
+#    rule_target_tags:
+#    - tag-fw-allow-ftp
+
+...

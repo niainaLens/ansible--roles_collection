@@ -1,0 +1,12 @@
+---
+# timezone
+
+# timedatectl list-timezones
+# sudo timedatectl set-timezone Continent/Country
+# sudo ln -s /usr/share/zoneinfo/Continent/Country /etc/localtime
+- name: Set timezone
+  timezone:
+    name: "{{ timezone.area }}"
+  become: yes
+  tags:
+  - set_timezone

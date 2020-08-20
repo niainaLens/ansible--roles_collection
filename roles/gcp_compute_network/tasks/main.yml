@@ -1,0 +1,23 @@
+---
+# GCP compute network
+
+- name: Create compute network
+  gcp_compute_network:
+    name: '{{ item.network_name | default("default") }}'
+    description: "{{ item.network_description | default(omit) }}"
+    auto_create_subnetworks: '{{ item.network_auto_subnets | default("true") }}'
+    project: "{{ gcp.project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp.credentials_file }}"
+    state: present
+  with_items: "{{ network }}"
+  register: network
+  tags:
+  - create_network
+
+- name: Waiting for processing
+  pause:
+    seconds: 5
+  when: network.changed
+
+...

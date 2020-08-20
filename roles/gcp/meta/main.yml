@@ -1,0 +1,17 @@
+---
+# GCP
+
+galaxy_info:
+  author: Niaina Lens
+  description: Metarole GCP
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 1.2
+  galaxy_tags: []
+dependencies:
+- gcp_compute_disk
+- gcp_compute_network
+- gcp_compute_address
+- gcp_compute_firewall
+- gcp_compute_instance
+
+...

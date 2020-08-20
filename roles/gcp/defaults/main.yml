@@ -1,0 +1,10 @@
+---
+# GCP
+
+disks: []
+network: []
+eip: []
+firewall: []
+instances: []
+
+...

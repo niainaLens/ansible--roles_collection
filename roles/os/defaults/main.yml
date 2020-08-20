@@ -1,0 +1,10 @@
+---
+# OS
+
+disks: []
+network: []
+eip: []
+firewall: []
+instances: []
+
+...
