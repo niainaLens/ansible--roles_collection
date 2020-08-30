@@ -1,0 +1,19 @@
+---
+# tasks file for odoo13
+
+- name: Install required packages for Odoo python modules / Debian family
+  apt:
+    name: "{{ odoo_required_packages.debian_family }}"
+    state: present
+    install_recommends: yes
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == 'Debian'
+  
+- name: Install required packages for Odoo python modules / Redhat family
+  yum:
+    name: "{{ odoo_required_packages.redhat_family }}"
+    state: present
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == 'Redhat'

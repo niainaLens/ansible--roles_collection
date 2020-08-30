@@ -1,0 +1,22 @@
+---
+# defaults file for odoo13
+
+odoo_required_packages:
+  debian_family:
+  - python3-pip
+  - libsasl2-dev
+  - python-dev
+  - libldap2-dev
+  - libssl-dev
+  redhat_family:
+  - python3-pip
+  - python-devel
+  - openldap-devel
+
+odoo:
+  version: 13
+  build: latest
+
+wkhtmltox:
+  version: 0.12.5
+  
