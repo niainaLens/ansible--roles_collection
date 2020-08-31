@@ -19,4 +19,22 @@ odoo:
 
 wkhtmltox:
   version: 0.12.5
-  
+  required_packages:
+  - fontconfig
+  - fontconfig-config
+  - fonts-dejavu-core
+  - libfontconfig1
+  - libfontenc1
+  - libjpeg62-turbo
+  - libx11-6
+  - libx11-data
+  - libxau6
+  - libxcb1
+  - libxdmcp6
+  - libxext6
+  - libxrender1
+  - x11-common
+  - xfonts-75dpi
+  - xfonts-base
+  - xfonts-encodings
+  - xfonts-utils
