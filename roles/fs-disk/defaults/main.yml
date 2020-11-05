@@ -1,0 +1,11 @@
+---
+
+fs_disk:
+  device_id: sdb
+  fs_type: ext4
+  fs_opts: "-m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard"
+  mountpoint: /data
+  mount_opts: "discard,defaults"
+  owner: root
+  group: root
+  mode: '0755'

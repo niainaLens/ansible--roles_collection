@@ -1,0 +1,35 @@
+---
+
+- name: Check if disk is used
+  shell: "lsblk --output KNAME,MOUNTPOINT |grep ^{{ fs_disk.device_id }} | awk '{print $2}'"
+  become: yes
+  ignore_errors: false
+  register: check_disk_used
+
+- name: Format disk
+  filesystem:
+    fstype: "{{ fs_disk.fs_type }}"
+    dev: "/dev/{{ fs_disk.device_id }}"
+    opts: "{{ fs_disk.fs_opts }}"
+  become: yes
+  when: check_disk_used.stdout == ""
+
+- name: Create mountpoint disk
+  file:
+    path: "{{ fs_disk.mountpoint }}"
+    state: directory
+    owner: "{{ fs_disk.owner }}"
+    group: "{{ fs_disk.group }}"
+    mode: "{{ fs_disk.mode }}"
+  become: yes
+
+- name: Mount Disk
+  mount:
+    src: "/dev/{{ fs_disk.device_id }}"
+    name: "{{ fs_disk.mountpoint }}"
+    fstype: "{{ fs_disk.fs_type }}"
+    opts: "{{ fs_disk.mount_opts }}"
+    state: mounted
+  become: yes
+
+...
